@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Suggestion App</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .full-body {
+            background-color: #D0F0FF;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+           
+            background-color: white;
+        border-radius: 10px;
+        border: white 150px solid;
+        width: 40%;
+        height: 50px;
+      margin-left: 25%;
+      margin-top: 8%;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    
+        }
+        .container h1 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+        .container p {
+            margin-bottom: 20px;
+        }
+        .input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 40%;
+            margin-bottom: 10px;
+        }
+        .butt {
+            padding: 7px 65px;
+            background-color: blue;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .button-d {
+        margin-top: -10%;
+        
+       margin-left: 350px;
+      
+    }
+        .butt:hover {
+            background-color: darkblue;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            
+            border-radius: 5px;
+            color:  skyblue;
+            font-size: 18px;
+            display: none;
+        }
+    </style>
+</head>
+<body class="full-body">
+    <div class="container">
+        <h1>Weather Suggestion App</h1>
+        <p>Enter the current temperature to get a suggestion:</p>
+        <input type="number" id="temperatureInput" class="input" placeholder="Enter temperature (°C)">
+        <div class="button-d"> <button class="butt" onclick="checkWeather()">Check Weather</button></div>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function checkWeather() {
+            const temperatureInput = document.getElementById("temperatureInput");
+            const resultDiv = document.getElementById("result");
+
+            const temperature = parseFloat(temperatureInput.value);
+
+            if (isNaN(temperature)) {
+                resultDiv.style.display = "block";
+                resultDiv.textContent = "Please enter a valid number.";
+                return;
+            }
+
+            if (temperature < 20) {
+                resultDiv.style.display = "block";
+                resultDiv.textContent = "It's cold! Wear a jacket.";
+            } else {
+                resultDiv.style.display = "block";
+                resultDiv.textContent = "No jacket needed.";
+            }
+        }
+    </script>
+</body>
+</html>
